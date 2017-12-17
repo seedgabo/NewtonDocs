@@ -56,7 +56,7 @@ export class ListPage {
       // .map(res => res.blob())
       .subscribe((res) => {
         var blob = new Blob([res.blob()], /*{ type: "text/plain;charset=utf-8" }*/);
-        saveAs(blob, documento.archivo);
+        saveAs(blob, documento.archivo || documento.titulo);
       }, console.error)
 
     // reader.onloadend = function (e) {

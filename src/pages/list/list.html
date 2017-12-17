@@ -23,7 +23,7 @@
     </ion-list>
   </ion-card>
 
-  <ion-card>
+  <ion-card *ngIf="documentos">
     <ion-list>
       <ion-list-header>
         Documentos
@@ -32,7 +32,7 @@
         <ion-icon name="document" item-left></ion-icon>
         {{ doc.titulo }}
         <p [innerHTML]="doc.descripcion"></p>
-        <span item-right color="primary">{{doc.mime}}</span>
+        <span *ngIf="doc.mime" item-right color="primary">{{doc.mime}}</span>
       </button>
     </ion-list>
   </ion-card>
