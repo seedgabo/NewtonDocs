@@ -1,3 +1,20 @@
 page-home {
-
+  .input-number {
+    display: inline-block;
+    border: none;
+    text-align: center;
+  }
+  .image-cliente {
+    background: url("/assets/imgs/background.jpg");
+    background-attachment: fixed;
+    img {
+      margin: 0 auto;
+      height: 120px;
+      max-width: 120px;
+      border-radius: 50%;
+    }
+  }
+  .delay-2 {
+    animation-delay: 2s;
+  }
 }

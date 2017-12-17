@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -7,12 +7,42 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content>
+  <ion-card *ngIf="cliente" class="fadeIn animated">
+    <ion-card-header>
+      {{cliente.full_name}}
+    </ion-card-header>
+    <ion-card-content>
+      <div *ngIf="cliente.foto_url" class="image-cliente">
+        <img [src]="cliente.foto_url" class="rubberBand animated delay-2">
+      </div>
+      <ion-list>
+        <ion-item>
+          <ion-icon name="document" item-left></ion-icon>
+          {{cliente.nit}}
+        </ion-item>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+        <ion-item *ngIf="cliente.email">
+          <ion-icon name="mail" item-left></ion-icon>
+          {{cliente.email}}
+        </ion-item>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+        <ion-item *ngIf="cliente.direccion">
+          <ion-icon name="locate" item-left></ion-icon>
+          {{cliente.direccion}}
+        </ion-item>
+
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="fadeIn animated" *ngIf="categorias">
+    <ion-list>
+      <ion-list-header color="light">Carpetas</ion-list-header>
+      <button [@fadeInOut] ion-item *ngFor="let cat of categorias" item-start (click)="goToCategoria(cat)">
+        <ion-icon item-left name="folder"></ion-icon>
+        {{cat.nombre}}
+      </button>
+    </ion-list>
+  </ion-card>
 </ion-content>

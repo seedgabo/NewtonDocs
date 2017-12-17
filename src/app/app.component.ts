@@ -1,9 +1,10 @@
+import { Api } from './../providers/Api';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
+// import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 
 @Component({
@@ -12,18 +13,25 @@ import { ListPage } from '../pages/list/list';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage;
+  pages: Array<{ title: string, component: any, icon: string }>;
 
-  pages: Array<{title: string, component: any}>;
-
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public api: Api) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Home', component: 'HomePage', icon: 'home' },
+      // { title: 'List', component: ListPage, icon: 'list' }
     ];
+    this.api.ready.then((data) => {
+      if (data) {
+        this.rootPage = 'HomePage';
+      }
+      else {
+        this.rootPage = 'LoginPage';
+      }
+    })
 
   }
 
@@ -40,5 +48,14 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+  logout() {
+    this.api.storage.remove('user');
+    this.api.storage.remove('username');
+    this.api.storage.remove('passowrd');
+    this.api.user = null;
+    this.api.username = null;
+    this.api.password = null;
+    this.nav.setRoot('LoginPage');
   }
 }

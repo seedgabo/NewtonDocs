@@ -1,19 +1,33 @@
-<ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-split-pane>
+  <ion-menu [content]="content" [enabled]="api.user" class="no-print">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
 
-  <ion-content>
-    <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button>
-    </ion-list>
-  </ion-content>
+    <ion-content>
+      <ion-list no-lines>
+        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+          <ion-icon name small item-left [name]="p.icon"></ion-icon>
+          {{p.title}}
+        </button>
+        <ion-item-divider color="light">
+          Configuracion
+        </ion-item-divider>
+        <button menuClose ion-item (click)="logout()">
+          <ion-icon item-left small name="log-out"></ion-icon>
+          Cerrar Sesión
+        </button>
+      </ion-list>
+    </ion-content>
+    <!-- <ion-footer>
+      <img src="http://newton.eycproveedores.com/newton/public/img/logo-newton.png" alt="">
+    </ion-footer> -->
 
-</ion-menu>
+  </ion-menu>
+
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false" main></ion-nav>
+</ion-split-pane>
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
