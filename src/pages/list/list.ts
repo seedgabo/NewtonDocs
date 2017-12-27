@@ -51,7 +51,7 @@ export class ListPage {
     // window.open(this.api.url + 'api/getDocumento/' + documento.id, '__system')
     let options = new RequestOptions({ responseType: ResponseContentType.ArrayBuffer });
     options.headers = this.api.setHeaders()
-    var reader = new FileReader();
+    // var reader = new FileReader();
     this.api.http.get(this.api.url + '/api/getDocumento/' + documento.id, options)
       // .map(res => res.blob())
       .subscribe((res) => {
