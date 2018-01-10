@@ -32,7 +32,7 @@ export class HomePage {
 
   getCliente() {
     if (this.api.user.cliente_id)
-      this.api.get(`clientes/${this.api.user.cliente_id}?with[]=image`)
+      this.api.get(`clientes/${this.api.user.cliente_id}`)
         .then((data: any) => {
           this.cliente = data;
         })
