@@ -43,7 +43,9 @@ export class HomePage {
     this.api.get(`users/${this.api.user.id}?with[]=categoriasdocumentos`)
       .then((data: any) => {
         console.log(data)
-        this.categorias = data.categoriasdocumentos;
+        this.categorias = data.categoriasdocumentos.filter((cat)=>{
+          return cat.parent_id == null || cat.parent_id == 0;
+        });
       })
       .catch(console.error)
   }
