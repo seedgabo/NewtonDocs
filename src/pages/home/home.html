@@ -48,26 +48,38 @@
 
   <ion-card class="fadeIn animated">
     <ion-card-title text-center>
-      <img [src]="api.url+'img/logo.png'" style="height:100px;width:100px;margin:0 auto;">
+      <img [src]="api.url+'img/logo.png'" style="height:100px;width:180px;margin:0 auto;">
     </ion-card-title>
     <ion-card-content>
-      <p style="color:#0055FF" text-justify>
-        Sr(a). {{ api.user?.nombre}}
-        <br> En esta plataforma encontrará los contratos y poderes de todos los procesos que la Unión Temporal adelanta en el
-        Departamento y sus municipios así:
-        <br> · En el costado derecho se encuentra(n) habilitada(a) las siguientes carpetas: (i) instructivo, (ii) departamento
-        de, (iii) comunicados.
-        <br>
-        <br> · La primera carpeta contiene la carta que servirá de orientación (explicación y requisitos) para cada uno de los
-        procesos que estamos adelantando en representación de los afiliados.
-        <br>
-        <br> · En la segunda encontrará los contratos de servicios profesionales, así como los poderes de cada reclamación, documentos
-        PDF que podrá descargar cuantas veces considere necesario.
-        <br>
-        <br> · En la tercera y última, podrá encontrar todos los comunicados que esta Oficina remite para efectos de socialización
-        con todos sus afiliados.
-        <br>
-        <br> En caso de presentar cualquier inquietud, no dude en comunicarse con nosotros.
+      <p style="color:#FF5500" text-justify>
+        <span  style="color:#0055FF" >
+            Sr(a). {{ api.user?.nombre}}
+            <br> En esta plataforma encontrará los contratos y poderes de todos los procesos que la Unión Temporal adelanta en el
+        </span>
+        <ul>
+            <li>
+                CARPETA DEL DEPARTAMENTO:
+                <ul>
+                    <li> contiene todos los formatos que se requieren para iniciar los diferentes procesos </li>
+                </ul>
+
+            </li>
+            <li>
+                    CARPETA INFORMACIÓN GENERAL: 
+                    <ul>
+                        <li>
+                            Carta Instructivo
+                        </li>
+                        <li>
+                            Comunicados    
+                        </li>
+                        <li>
+                            Otros
+                        </li>
+                    </ul>
+            </li>
+        </ul>
+        <br> En caso de presentar cualquier inquietud, no dude en comunicarse con nosotros
       </p>
     </ion-card-content>
   </ion-card>
