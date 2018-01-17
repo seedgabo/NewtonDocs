@@ -1,4 +1,4 @@
-<ion-split-pane>
+<!-- <ion-split-pane> -->
   <ion-menu [content]="content" [enabled]="api.user" class="no-print">
     <ion-header>
       <ion-toolbar color="primary">
@@ -21,18 +21,9 @@
         </button>
       </ion-list>
     </ion-content>
-    <ion-footer>
-      <ion-toolbar color="danger" style="color:white;" text-center>
-        <h3>INFORMACIÓN GENERAL</h3>
-        <p>Cra 9 No 113 - 52 Oficina 608 Torres Unidas II</p>
-        <p>(57)1 6122120 - 6374369 Bogotá DC. Colombia</p>
-        <a href="mailto:contactenos@unionasesoreslaborales.com" target="_system">contactenos@unionasesoreslaborales.com</a>
-      </ion-toolbar>
-    </ion-footer>
-
   </ion-menu>
 
   <ion-nav [root]="rootPage" #content swipeBackEnabled="false" main></ion-nav>
-</ion-split-pane>
+<!-- </ion-split-pane> -->
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->

@@ -8,15 +8,16 @@
 </ion-header>
 
 <ion-content>
+
   <ion-card *ngIf="cliente" class="fadeIn animated">
     <ion-card-header>
-      {{cliente.full_name}}
+      {{cliente.full_name}}  -  {{cliente.nit}}
     </ion-card-header>
     <ion-card-content>
-      <div *ngIf="cliente.foto_url" class="image-cliente">
+      <!-- <div *ngIf="cliente.foto_url" class="image-cliente">
         <img [src]="cliente.foto_url" class="rubberBand animated delay-2">
-      </div>
-      <ion-list>
+      </div> -->
+      <!-- <ion-list>
         <ion-item>
           <ion-icon name="document" item-left></ion-icon>
           {{cliente.nit}}
@@ -32,7 +33,40 @@
           {{cliente.direccion}}
         </ion-item>
 
-      </ion-list>
+      </ion-list> -->
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="fadeIn animated">
+    <ion-card-title text-center>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <img [src]="api.url+'img/logo.png'" style="height:100px;width:180px;margin:0 auto;">
+          </ion-col>
+          <ion-col>
+            <img src="assets/imgs/sintrenal-logo.jpg" style="height:100px;width:180px;margin:0 auto;">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-title>
+    <ion-card-content>
+      <span>
+        Sr(a). {{ api.user?.nombre }}
+        <br> En esta plataforma encontrará los contratos y poderes de todos los procesos que la Unión Temporal adelanta en el Departamento
+        y sus municipios así:
+      </span>
+      <pre style="font-family:Roboto,'Helvetica Neue',sans-serif">
+              · CARPETA DEL DEPARTAMENTO:
+                  - contiene todos los formatos que se requieren para iniciar los diferentes procesos
+              ·  CARPETA INFORMACIÓN GENERAL:
+                  - Carta Instructivo
+                  -Comunicados
+                  -Otros
+      </pre>
+      <span>
+        En caso de presentar cualquier inquietud, no dude en comunicarse con nosotros.
+      </span>
     </ion-card-content>
   </ion-card>
 
@@ -46,27 +80,15 @@
     </ion-list>
   </ion-card>
 
-  <ion-card class="fadeIn animated">
-    <ion-card-title text-center>
-      <img [src]="api.url+'img/logo.png'" style="height:100px;width:180px;margin:0 auto;">
-    </ion-card-title>
-    <ion-card-content>
-      <span>
-        Sr(a). Carlos Sanchez
-        <br> En esta plataforma encontrará los contratos y poderes de todos los procesos que la Unión Temporal adelanta en el
-        Departamento y sus municipios así:
-      </span>
-      <pre style="font-family:Roboto,'Helvetica Neue',sans-serif">
-          · CARPETA DEL DEPARTAMENTO:
-              - contiene todos los formatos que se requieren para iniciar los diferentes procesos
-          ·  CARPETA INFORMACIÓN GENERAL:
-              - Carta Instructivo
-              -Comunicados
-              -Otros
-        </pre>
-      <span>
-        En caso de presentar cualquier inquietud, no dude en comunicarse con nosotros.
-      </span>
-    </ion-card-content>
-  </ion-card>
+
+
+  <ion-toolbar color="danger" style="color:white;" text-center>
+    <h3>INFORMACIÓN GENERAL</h3>
+    <p>Cra 9 No 113 - 52 Oficina 608 Torres Unidas II</p>
+    <p>(57)1 6122120 - 6374369 Bogotá DC. Colombia</p>
+    <a href="mailto:contactenos@unionasesoreslaborales.com" target="_system">contactenos@unionasesoreslaborales.com</a>
+  </ion-toolbar>
 </ion-content>
+
+<ion-footer>
+</ion-footer>
