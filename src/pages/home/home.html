@@ -68,16 +68,14 @@
 
                   -Otros
       </pre>
-      <span>
-        En caso de presentar cualquier inquietud, no dude en comunicarse con nosotros.
-        <span>Cordialmente, Unión Temporal Asesores Laborales</span>
-      </span>
     </ion-card-content>
   </ion-card>
 
   <ion-card class="fadeIn animated" *ngIf="categorias">
     <ion-list>
-      <ion-list-header color="light">Carpetas</ion-list-header>
+      <ion-list-header color="light">
+        <b>Carpetas</b>
+      </ion-list-header>
       <button [@fadeInOut] ion-item *ngFor="let cat of categorias" item-start (click)="goToCategoria(cat)">
         <ion-icon item-left name="folder"></ion-icon>
         {{cat.nombre}}
@@ -85,6 +83,10 @@
     </ion-list>
   </ion-card>
 
+  <p>
+    En caso de presentar cualquier inquietud, no dude en comunicarse con nosotros.
+    <span>Cordialmente, Unión Temporal Asesores Laborales</span>
+  </p>
 
 
   <ion-toolbar color="primary" style="color:white;" text-center>
