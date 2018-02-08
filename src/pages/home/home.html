@@ -1,6 +1,5 @@
 <ion-header>
 <ion-toolbar color="primary">
-
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -51,22 +50,27 @@
         </ion-row>
       </ion-grid>
     </ion-card-title>
-    <ion-card-content style="">
+    <ion-card-content>
       <span>
-        Presidente(a). {{ api.user?.nombre }}
+        Presidente(a):
         <br>
-        <br> En esta plataforma encontrará los contratos y poderes de todos los procesos que la Unión Temporal adelanta en el Departamento
-        y sus municipios así:
+        <br> En ésta Plataforma encontrará los contratos y poderes de todos los procesos que la Unión temporal adelanta en el Departamento y sus Municipios asi:
       </span>
-      <pre style="font-family:Roboto,'Helvetica Neue',sans-serif">
-              · <b>CARPETA DEL DEPARTAMENTO:</b>
-                  - Contiene todos los formatos que se requieren para iniciar los diferentes procesos
+      <pre style="font-family:'Century Gothic',Roboto,'Helvetica Neue',sans-serif">
+        <b>· CARPETA DEL DEPARTAMENTO</b>
+           -   Contiene todos los formatos que se requieren para iniciar los diferentes procesos.
 
-              · <b> CARPETA INFORMACIÓN GENERAL:</b>
-                  - Carta Instructivo
-                  -Comunicados
-                  -Otros
-
+        <b>· CARPETA INFORMACIÓN GENERAL</b>
+            -   Carta de Instructivos
+            -   Comunicados
+            -   Otros
+      </pre>
+      <pre style="font-family:'Century Gothic',Roboto,'Helvetica Neue',sans-serif">
+        En caso de presentarse cualquier inquietud no dude en comunicarse con nosotros.
+        
+        Cordial Saludo, 
+        
+        UNION TEMPORAL ASESORES LABORALES
       </pre>
     </ion-card-content>
   </ion-card>
@@ -77,20 +81,13 @@
         <b>Carpetas</b>
       </ion-list-header>
       <button [@fadeInOut] ion-item *ngFor="let cat of categorias" item-start (click)="goToCategoria(cat)">
-        <ion-icon item-left name="folder"></ion-icon>
+        <!-- <ion-icon item-left color="primary" large name="ios-folder"></ion-icon> -->
+        <ion-avatar item-left> 
+          <img src="/assets/imgs/folder.png">
+        </ion-avatar>
         {{cat.nombre}}
       </button>
     </ion-list>
-  </ion-card>
-
-  <ion-card>
-    <pre style="font-family:Roboto,'Helvetica Neue',sans-serif">
-      En caso de presentarse cualquier inquietud no dude en comunicarse con nosotros. 
-      
-      Cordial Saludo, 
-      
-      UNION TEMPORAL ASESORES LABORALES
-    </pre>
   </ion-card>
 
 

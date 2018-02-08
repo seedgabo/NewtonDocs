@@ -17,7 +17,10 @@
         Carpetas
       </ion-list-header>
       <button ion-item *ngFor="let cat of categorias" item-start (click)="goToCategoria(cat)" [@fadeInOut]>
-        <ion-icon name="folder" item-left></ion-icon>
+        <!-- <ion-icon name="md-folder" color="primary" large item-left></ion-icon> -->
+        <ion-avatar item-left>
+          <img src="assets/imgs/folder.png">
+        </ion-avatar>
         {{ cat.nombre }}
       </button>
     </ion-list>
@@ -29,7 +32,7 @@
         Documentos
       </ion-list-header>
       <button ion-item *ngFor="let doc of documentos" item-start [@fadeInOut] (click)="openDocument(doc)">
-        <ion-icon name="document" item-left></ion-icon>
+        <ion-icon name="document" large color="primary" item-left></ion-icon>
         {{ doc.titulo }}
         <p [innerHTML]="doc.descripcion"></p>
         <span *ngIf="doc.mime" item-right color="primary">{{doc.mime}}</span>

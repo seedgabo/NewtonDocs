@@ -23,7 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpModule,
     BrowserAnimationsModule,
     IonicStorageModule.forRoot(),
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {mode: 'ios'}),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
