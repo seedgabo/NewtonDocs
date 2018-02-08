@@ -1,5 +1,5 @@
 <ion-header>
-<ion-toolbar color="primary">
+<ion-toolbar style="font-family:'Century Gothic',Roboto,'Helvetica Neue',sans-serif" color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -7,9 +7,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content style="font-family:'Century Gothic',Roboto,'Helvetica Neue',sans-serif">
 
-  <ion-card *ngIf="cliente" class="fadeIn animated">
+  <ion-card style="font-family:'Century Gothic',Roboto,'Helvetica Neue',sans-serif" *ngIf="cliente" class="fadeIn animated">
     <ion-card-header>
       {{cliente.full_name}}  -  {{cliente.nit}}
     </ion-card-header>
@@ -50,11 +50,11 @@
         </ion-row>
       </ion-grid>
     </ion-card-title>
-    <ion-card-content>
-      <span>
+    <ion-card-content style="font-family:'Century Gothic',Roboto,'Helvetica Neue',sans-serif">
+      <span style="font-family:'Century Gothic',Roboto,'Helvetica Neue',sans-serif">
         Presidente(a):
         <br>
-        <br> En ésta Plataforma encontrará los contratos y poderes de todos los procesos que la Unión temporal adelanta en el Departamento y sus Municipios asi:
+        <br>En ésta Plataforma encontrará los contratos y poderes de todos los procesos que la Unión temporal adelanta en el Departamento y sus Municipios asi:
       </span>
       <pre style="font-family:'Century Gothic',Roboto,'Helvetica Neue',sans-serif">
         <b>· CARPETA DEL DEPARTAMENTO</b>
@@ -65,33 +65,33 @@
             -   Comunicados
             -   Otros
       </pre>
-      <pre style="font-family:'Century Gothic',Roboto,'Helvetica Neue',sans-serif">
-        En caso de presentarse cualquier inquietud no dude en comunicarse con nosotros.
-        
-        Cordial Saludo, 
-        
-        UNION TEMPORAL ASESORES LABORALES
-      </pre>
+<pre style="font-family:'Century Gothic',Roboto,'Helvetica Neue',sans-serif">
+En caso de presentarse cualquier inquietud no dude en comunicarse con nosotros.
+  
+Cordial Saludo, 
+  
+UNION TEMPORAL ASESORES LABORALES
+</pre>
     </ion-card-content>
   </ion-card>
 
-  <ion-card class="fadeIn animated" *ngIf="categorias">
+  <ion-card style="font-family:'Century Gothic',Roboto,'Helvetica Neue',sans-serif" class="fadeIn animated" *ngIf="categorias">
     <ion-list>
       <ion-list-header color="light">
         <b>Carpetas</b>
       </ion-list-header>
       <button [@fadeInOut] ion-item *ngFor="let cat of categorias" item-start (click)="goToCategoria(cat)">
-        <!-- <ion-icon item-left color="primary" large name="ios-folder"></ion-icon> -->
-        <ion-avatar item-left> 
-          <img src="/assets/imgs/folder.png">
-        </ion-avatar>
+        <ion-icon item-left color="primary" large name="md-folder"></ion-icon>
+        <!-- <ion-avatar item-left> 
+          <img src="assets/imgs/folder.png">
+        </ion-avatar> -->
         {{cat.nombre}}
       </button>
     </ion-list>
   </ion-card>
 
 
-  <ion-toolbar color="primary" style="color:white;" text-center>
+  <ion-toolbar  color="primary" style="font-family:'Century Gothic',Roboto,'Helvetica Neue',sans-serif;color:white;" text-center>
     <h3>INFORMACIÓN GENERAL</h3>
     <p>Cra 9 No 113 - 52 Oficina 608 Torres Unidas II</p>
     <p>(57)1 6122120 - 6374369 Bogotá DC. Colombia</p>
