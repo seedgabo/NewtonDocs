@@ -1,5 +1,5 @@
 {
-  "name": "NewtonDocs",
+  "name": "newton-docs",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
@@ -9,7 +9,9 @@
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
-    "ionic:serve": "ionic-app-scripts serve"
+    "ionic:serve": "ionic-app-scripts serve",
+    "release-web": "ionic cordova build browser --prod",
+    "build-android": "cordova build android --prod --release"
   },
   "dependencies": {
     "@angular/animations": "^4.4.6",
