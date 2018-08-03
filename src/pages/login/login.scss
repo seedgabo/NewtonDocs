@@ -1,28 +1,30 @@
-page-login {
-  .padding {
-    margin-top: 10%;
-  }
-  .logo {
-    max-width: 150px;
-    max-height: 150px;
-    margin: 0 auto;
+.page1 {
+  background-image: url(../assets/img/background-login.jpg);
+  .login {
+    padding-top: 50px;
+    animation: fadeInUp 1s;
+    -webkit-animation: fadeInUp 1s;
   }
 }
 
-.auth {
-  // background-image: url("assets/imgs/background.jpg");
-  .login-form {
-    animation: 1s linear;
-    animation-name: fade;
-    opacity: 1;
-  }
-}
-
-@keyframes fade {
-  from {
+@keyframes fadeInUp {
+  0% {
     opacity: 0;
+    transform: translateY(50px);
   }
-  to {
+  100% {
     opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutDown {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(200px);
   }
 }

@@ -1,39 +1,37 @@
-import { Api } from './../providers/Api';
-import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { Api } from "./../providers/Api";
+import { Component, ViewChild } from "@angular/core";
+import { Nav, Platform } from "ionic-angular";
+import { StatusBar } from "@ionic-native/status-bar";
+import { SplashScreen } from "@ionic-native/splash-screen";
 
 // import { HomePage } from '../pages/home/home';
 // import { ListPage } from '../pages/list/list';
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: "app.html"
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage;
-  pages: Array<{ title: string, component: any, icon: string }>;
+  pages: Array<{ title: string; component: any; icon: string }>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public api: Api) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: 'HomePage', icon: 'home' },
+      { title: "Home", component: "HomePage", icon: "home" }
       // { title: 'Comunicado', component: 'TutorialPage', icon: 'information-circle' },
       // { title: 'List', component: ListPage, icon: 'list' }
     ];
     this.api.ready.then((data) => {
       if (data) {
-        this.rootPage = 'HomePage';
+        this.rootPage = "HomePage";
+      } else {
+        this.rootPage = "LoginPage";
       }
-      else {
-        this.rootPage = 'LoginPage';
-      }
-    })
-
+    });
   }
 
   initializeApp() {
@@ -51,12 +49,13 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
   logout() {
-    this.api.storage.remove('user');
-    this.api.storage.remove('username');
-    this.api.storage.remove('passowrd');
+    this.api.storage.remove("user");
+    this.api.storage.remove("username");
+    this.api.storage.remove("passowrd");
     this.api.user = null;
     this.api.username = null;
     this.api.password = null;
-    this.nav.setRoot('LoginPage');
+    this.api.saveUser(null);
+    this.nav.setRoot("LoginPage");
   }
 }

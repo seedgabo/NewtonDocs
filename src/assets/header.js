@@ -1,1 +1,1 @@
-// window.url = "http://newton.eycproveedores.com/newton/public/";
+window.url = "http://newton.eycproveedores.com/logistica/public/";
