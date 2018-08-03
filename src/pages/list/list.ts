@@ -1,18 +1,17 @@
-
-import { Api } from './../../providers/Api';
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import { trigger, state, transition, style, animate } from '@angular/core';
-import { RequestOptions, ResponseContentType } from '@angular/http';
+import { Api } from "./../../providers/Api";
+import { Component } from "@angular/core";
+import { NavController, NavParams } from "ionic-angular";
+import { trigger, state, transition, style, animate } from "@angular/core";
+import { RequestOptions, ResponseContentType } from "@angular/http";
 declare var saveAs: any;
 @Component({
-  selector: 'page-list',
-  templateUrl: 'list.html',
+  selector: "page-list",
+  templateUrl: "list.html",
   animations: [
-    trigger('fadeInOut', [
-      state('void', style({ opacity: '0', left: "-200px", position: 'absolute' })),
-      state('*', style({ opacity: '1', left: '0px' })),
-      transition('void <=> *', animate('300ms ease-in'))
+    trigger("fadeInOut", [
+      state("void", style({ opacity: "0", left: "-200px", position: "absolute" })),
+      state("*", style({ opacity: "1", left: "0px" })),
+      transition("void <=> *", animate("300ms ease-in"))
     ])
   ]
 })
@@ -21,43 +20,46 @@ export class ListPage {
   documentos: any = [];
   categoria: any = {};
   constructor(public navCtrl: NavController, public navParams: NavParams, public api: Api) {
-    this.categoria = this.navParams.get('categoria');
+    this.categoria = this.navParams.get("categoria");
   }
 
   ionViewDidLoad() {
-    this.getDocumentos()
-    this.getCategorias()
+    this.getDocumentos();
+    this.getCategorias();
   }
   getCategorias() {
-    this.api.get(`categorias-documentos?where[parent_id]=${this.categoria.id}`)
+    this.api
+      .get(`categorias-documentos?where[parent_id]=${this.categoria.id}`)
       .then((cats) => {
-        this.categorias = cats
+        this.categorias = cats;
       })
-      .catch(console.error)
+      .catch(console.error);
   }
 
   getDocumentos() {
-    this.api.get(`documentos?where[categoria_id]=${this.categoria.id}&where[activo]=1`)
+    this.api
+      .get(`documentos?where[categoria_id]=${this.categoria.id}&where[activo]=1`)
       .then((docs) => {
-        this.documentos = docs
+        this.documentos = docs;
       })
-      .catch(console.error)
+      .catch(console.error);
   }
 
   goToCategoria(categoria) {
-    this.navCtrl.push(ListPage, { categoria: categoria })
+    this.navCtrl.push(ListPage, { categoria: categoria });
   }
   openDocument(documento) {
     // window.open(this.api.url + 'api/getDocumento/' + documento.id, '__system')
     let options = new RequestOptions({ responseType: ResponseContentType.ArrayBuffer });
-    options.headers = this.api.setHeaders()
+    options.headers = this.api.setHeaders();
     // var reader = new FileReader();
-    this.api.http.get(this.api.url + '/api/getDocumento/' + documento.id, options)
+    this.api.http
+      .get(this.api.url + "/api/getDocumento/" + documento.id, options)
       // .map(res => res.blob())
       .subscribe((res) => {
-        var blob = new Blob([res.blob()], /*{ type: "text/plain;charset=utf-8" }*/);
+        var blob = new Blob([res.blob()] /*{ type: "text/plain;charset=utf-8" }*/);
         saveAs(blob, documento.archivo || documento.titulo);
-      }, console.error)
+      }, console.error);
 
     // reader.onloadend = function (e) {
     //   // window.open("data:application/octet-stream," + reader.result, '__system');

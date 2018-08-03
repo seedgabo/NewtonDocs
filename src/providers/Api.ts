@@ -716,7 +716,7 @@ export class Api {
     return value.replace("__.", "").replace("literals.", "");
   }
 
-  private setHeaders() {
+  public setHeaders() {
     let headers = new Headers();
     headers.append("Authorization", "Basic " + btoa(this.username + ":" + this.password));
     return headers;

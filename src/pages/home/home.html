@@ -1,5 +1,5 @@
 <ion-header>
-<ion-toolbar style="font-family:'Century Gothic',Roboto,'Helvetica Neue',sans-serif" color="primary">
+  <ion-toolbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -7,17 +7,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content style="font-family:'Century Gothic',Roboto,'Helvetica Neue',sans-serif">
+<ion-content>
 
-  <ion-card style="font-family:'Century Gothic',Roboto,'Helvetica Neue',sans-serif" *ngIf="cliente" class="fadeIn animated">
+  <ion-card *ngIf="cliente" class="fadeIn animated">
     <ion-card-header>
-      {{cliente.full_name}}  -  {{cliente.nit}}
+      {{cliente.full_name}} - {{cliente.nit}}
     </ion-card-header>
     <ion-card-content>
-      <!-- <div *ngIf="cliente.foto_url" class="image-cliente">
+      <div *ngIf="cliente.foto_url" class="image-cliente">
         <img [src]="cliente.foto_url" class="rubberBand animated delay-2">
-      </div> -->
-      <!-- <ion-list>
+      </div>
+      <ion-list>
         <ion-item>
           <ion-icon name="document" item-left></ion-icon>
           {{cliente.nit}}
@@ -33,45 +33,7 @@
           {{cliente.direccion}}
         </ion-item>
 
-      </ion-list> -->
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card class="fadeIn animated">
-    <ion-card-title text-center>
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <img [src]="api.url+'img/logo.png'" style="height:100px;width:180px;margin:0 auto;">
-          </ion-col>
-          <ion-col>
-            <img src="assets/imgs/sintrenal-logo.jpg" style="height:100px;width:180px;margin:0 auto;">
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card-title>
-    <ion-card-content style="font-family:'Century Gothic',Roboto,'Helvetica Neue',sans-serif">
-      <span style="font-family:'Century Gothic',Roboto,'Helvetica Neue',sans-serif">
-        Presidente (a): {{ api.user.nombre }}
-
-        <br>
-        <br>En esta plataforma encontrará los contratos y poderes de todos los procesos que la Unión Temporal adelanta en el departamento y sus municipios asi:
-      </span>
-      <pre style="font-family:'Century Gothic',Roboto,'Helvetica Neue',sans-serif">
-        <b>· CARPETA DEL DEPARTAMENTO</b>
-           -   Contiene todos los formatos que se requieren para iniciar los diferentes procesos.
-
-        <b>· CARPETA INFORMACIÓN GENERAL</b>
-            -   Comunicados
-            -   Otros
-      </pre>
-<pre style="font-family:'Century Gothic',Roboto,'Helvetica Neue',sans-serif">
-En caso de presentarse cualquier inquietud no dude en comunicarse con nosotros.
-  
-Cordial Saludo, 
-  
-<b>UNION TEMPORAL ASESORES LABORALES</b>
-</pre>
+      </ion-list>
     </ion-card-content>
   </ion-card>
 
@@ -82,21 +44,10 @@ Cordial Saludo,
       </ion-list-header>
       <button [@fadeInOut] ion-item *ngFor="let cat of categorias" item-start (click)="goToCategoria(cat)">
         <ion-icon item-left color="primary" large name="md-folder"></ion-icon>
-        <!-- <ion-avatar item-left> 
-          <img src="assets/imgs/folder.png">
-        </ion-avatar> -->
-        {{cat.nombre}}
+        {{ cat.nombre }}
       </button>
     </ion-list>
   </ion-card>
-
-
-  <ion-toolbar  color="primary" style="font-family:'Century Gothic',Roboto,'Helvetica Neue',sans-serif;color:white;" text-center>
-    <h3>INFORMACIÓN GENERAL</h3>
-    <p>Cra 9 No 113 - 52 Oficina 608 Torres Unidas II</p>
-    <p>(57)1 6122120 - 6374369 Bogotá DC. Colombia</p>
-    <a ion-text color="secondary" href="mailto:contactenos@unionasesoreslaborales.com" target="_system">contactenos@unionasesoreslaborales.com</a>
-  </ion-toolbar>
 </ion-content>
 
 <ion-footer>
