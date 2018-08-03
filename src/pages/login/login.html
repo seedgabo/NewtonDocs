@@ -1,9 +1,9 @@
 <ion-content class="page1">
 
-  <div class="login">
+  <div class="login" [style.background-url]="backimg">
     <div text-center>
-      <img src="assets/img/logo.png" *ngIf="!prefilled" style="width:100px" alt="">
-      <img [src]="api.url + '/img/logo.png'" *ngIf="prefilled" style="width:100px" alt="">
+      <img src="assets/img/logo.png" *ngIf="!prefilled" style="max-width:120px;max-height: 120px;" alt="">
+      <img [src]="api.url + '/img/logo.png'" *ngIf="prefilled" style="max-width:120px;max-height: 120px;" alt="">
     </div>
     <br>
     <h1 text-center color="primary"> Iniciar Sesión</h1>

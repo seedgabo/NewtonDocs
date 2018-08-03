@@ -11,7 +11,7 @@ export class Api {
   password: string;
   token: string;
   url: string = window.url || "http://newton.eycproveedores.com/newton/public/";
-  user: any = { token: null };
+  user: any = null;
   pushData: any;
   objects: any = {};
   langs = {};
@@ -23,11 +23,12 @@ export class Api {
     window.$api = this;
     this.initVar();
     this.ready.then(() => {
-      this.get("lang")
-        .then((langs) => {
-          this.langs = langs;
-        })
-        .catch(console.error);
+      if (this.user)
+        this.get("lang")
+          .then((langs) => {
+            this.langs = langs;
+          })
+          .catch(console.error);
     });
   }
 
@@ -147,7 +148,7 @@ export class Api {
     this.storage.get("username").then((data) => (this.username = data));
     this.storage.get("password").then((data) => (this.password = data));
     this.storage.get("user").then((data) => {
-      data != undefined ? (this.user = data) : {};
+      data ? (this.user = data) : null;
       this.resolve(this.user);
     });
   }

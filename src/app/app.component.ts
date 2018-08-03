@@ -25,7 +25,7 @@ export class MyApp {
       // { title: 'Comunicado', component: 'TutorialPage', icon: 'information-circle' },
       // { title: 'List', component: ListPage, icon: 'list' }
     ];
-    this.api.ready.then((data) => {
+    this.api.ready.then((data: any) => {
       if (data) {
         this.rootPage = "HomePage";
       } else {
