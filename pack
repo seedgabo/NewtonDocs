@@ -1,5 +1,4 @@
 #!/bin/bash
-ionic cordova build browser --prod
 cd ./platforms/browser/www
 rsync --exclude=assets/header.js -avz --delete . "eyc_proveedores@newton.eycproveedores.com:htdocs/$1/documentos"
 echo "syncronized"
