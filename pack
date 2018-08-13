@@ -1,5 +1,5 @@
 #!/bin/bash
 cd ./platforms/browser/www
-rsync --exclude=assets/header.js -avz --delete . "eyc_proveedores@newton.eycproveedores.com:htdocs/$1/documentos"
+rsync --exclude=assets/header.js -avz --delete . "gabriel@newton.eycproveedores.com:htdocs/$1/documentos"
 echo "syncronized"
 cd ../../../
