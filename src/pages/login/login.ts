@@ -33,14 +33,13 @@ export class LoginPage {
   ) {
     if (window.url) {
       this.prefilled = true;
+      this.backimg = this.sanitizer.bypassSecurityTrustStyle(`url('${this.api.url}img/fondo (1).jpg')`);
+    }else{
+      this.backimg = this.sanitizer.bypassSecurityTrustStyle(`/assets/imgs/background-login.jpg`);
     }
   }
 
   ionViewDidLoad() {
-    this.api.ready.then(() => {
-      this.backimg = this.sanitizer.bypassSecurityTrustStyle("url('" + this.api.url + "img/fondo (1).jpg')");
-      console.log(this.backimg);
-    });
   }
 
   doLogin() {

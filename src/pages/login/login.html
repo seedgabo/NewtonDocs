@@ -1,30 +1,29 @@
-<ion-content class="page1">
-
-  <div class="login" [style.background-url]="backimg">
-    <div text-center>
-      <img src="assets/img/logo.png" *ngIf="!prefilled" style="max-width:120px;max-height: 120px;" alt="">
-      <img [src]="api.url + '/img/logo.png'" *ngIf="prefilled" style="max-width:120px;max-height: 120px;" alt="">
-    </div>
-    <br>
-    <h1 text-center color="primary"> Iniciar Sesión</h1>
-    <div padding>
-      <!-- <form> -->
-      <ion-item *ngIf="!prefilled" style="background:rgba(255,255,255,0.3)">
-        <ion-label floating>URL</ion-label>
-        <ion-input type="url" [(ngModel)]="api.url"></ion-input>
-      </ion-item>
-      <ion-item style="background:rgba(255,255,255,0.3)">
-        <ion-label floating>Usuario</ion-label>
-        <ion-input type="email" [(ngModel)]="api.username"></ion-input>
-      </ion-item>
-      <ion-item style="background:rgba(255,255,255,0.3)">
-        <ion-label floating>Contraseña</ion-label>
-        <ion-input type="password" [(ngModel)]="api.password"></ion-input>
-      </ion-item>
-      <!-- </form> -->
-      <button ion-button color="primary" full (click)="doLogin()"> Entrar</button>
+<ion-content text-center>
+  <div class="login" [style.backgroundImage]="backimg">
+    <div class="login-card">
+      <div text-center>
+        <img src="assets/img/logo.png" *ngIf="!prefilled" style="max-width:120px;max-height: 120px;" alt="">
+        <img [src]="api.url + '/img/logo.png'" *ngIf="prefilled" style="max-width:120px;max-height: 120px;" alt="">
+      </div>
+      <br>
+      <h1 text-center color="primary"> Iniciar Sesión</h1>
+      <div padding>
+        <!-- <form> -->
+        <ion-item *ngIf="!prefilled" style="background:rgba(255,255,255,0.3)">
+          <ion-label floating>URL</ion-label>
+          <ion-input type="url" [(ngModel)]="api.url"></ion-input>
+        </ion-item>
+        <ion-item style="background:rgba(255,255,255,0.3)">
+          <ion-label floating>Usuario</ion-label>
+          <ion-input type="email" [(ngModel)]="api.username"></ion-input>
+        </ion-item>
+        <ion-item style="background:rgba(255,255,255,0.3)">
+          <ion-label floating>Contraseña</ion-label>
+          <ion-input type="password" [(ngModel)]="api.password"></ion-input>
+        </ion-item>
+        <!-- </form> -->
+        <button ion-button color="primary" full (click)="doLogin()"> Entrar</button>
+      </div>
     </div>
   </div>
-
-
 </ion-content>
