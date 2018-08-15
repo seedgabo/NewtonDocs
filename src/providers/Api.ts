@@ -19,7 +19,27 @@ export class Api {
   ready = new Promise((resolve) => {
     this.resolve = resolve;
   });
-  constructor(public http: Http, private platform: Platform, public storage: Storage, public alert: AlertController) {
+  storage = {
+    ready: () => {
+      return this._storage.ready();
+    },
+    get: (key) => {
+      var prefix = window.url ? window.url : "";
+      return this._storage.get(prefix + key);
+    },
+    set: (key, value) => {
+      var prefix = window.url ? window.url : "";
+      return this._storage.set(prefix + key, value);
+    },
+    remove: (key) => {
+      var prefix = window.url ? window.url : "";
+      return this._storage.remove(prefix + key);
+    },
+    clear: () => {
+      return this._storage.clear();
+    }
+  };
+  constructor(public http: Http, private platform: Platform, public _storage: Storage, public alert: AlertController) {
     window.$api = this;
     this.initVar();
     this.ready.then(() => {
